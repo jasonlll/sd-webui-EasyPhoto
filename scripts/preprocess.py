@@ -43,11 +43,11 @@ def preprocess_images(images_save_path, json_save_path, validation_prompt, input
     # semantic segmentation
     salient_detect          = pipeline(Tasks.semantic_segmentation, 'damo/cv_u2net_salient-detection')
     # skin retouching
-    try:
-        skin_retouching     = pipeline('skin-retouching-torch', model='damo/cv_unet_skin_retouching_torch', model_revision='v1.0.2')
-    except:
-        skin_retouching     = None
-        logging.info("Skin Retouching model load error, but pass.")
+    # try:
+    #     skin_retouching     = pipeline('skin-retouching-torch', model='damo/cv_unet_skin_retouching_torch', model_revision='v1.0.2')
+    # except:
+    #     skin_retouching     = None
+    #     logging.info("Skin Retouching model load error, but pass.")
     # portrait enhancement
     try:
         portrait_enhancement = pipeline(Tasks.image_portrait_enhancement, model='damo/cv_gpen_image-portrait-enhancement')
@@ -206,7 +206,7 @@ def preprocess_images(images_save_path, json_save_path, validation_prompt, input
 
     del retinaface_detection
     del salient_detect
-    del skin_retouching
+    # del skin_retouching
     del portrait_enhancement
     del face_recognition
     del face_analyser

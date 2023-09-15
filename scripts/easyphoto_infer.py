@@ -502,13 +502,13 @@ def easyphoto_infer_forward(
             logging.info(f"Background Restore Failed, Please check the ratio of height and width in template. Error Info: {e}")
             return f"Background Restore Failed, Please check the ratio of height and width in template. Error Info: {e}", outputs, []
         
-        try:
-            logging.info("Start Skin Retouching.")
-            # Skin Retouching is performed here. 
-            output_image = Image.fromarray(cv2.cvtColor(skin_retouching(output_image)[OutputKeys.OUTPUT_IMG], cv2.COLOR_BGR2RGB))
-        except Exception as e:
-            torch.cuda.empty_cache()
-            logging.error(f"Skin Retouching error: {e}")
+        # try:
+        #     logging.info("Start Skin Retouching.")
+        #     # Skin Retouching is performed here. 
+        #     output_image = Image.fromarray(cv2.cvtColor(skin_retouching(output_image)[OutputKeys.OUTPUT_IMG], cv2.COLOR_BGR2RGB))
+        # except Exception as e:
+        #     torch.cuda.empty_cache()
+        #     logging.error(f"Skin Retouching error: {e}")
 
         try:
             logging.info("Start Portrait enhancement.")
