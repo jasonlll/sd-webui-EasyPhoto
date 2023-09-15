@@ -139,10 +139,10 @@ def preprocess_images(images_save_path, json_save_path, validation_prompt, input
         retinaface_box          = retinaface_boxes[0]
         # crop image
         sub_image               = image.crop(retinaface_box)
-        try:
-            sub_image           = Image.fromarray(cv2.cvtColor(skin_retouching(sub_image)[OutputKeys.OUTPUT_IMG], cv2.COLOR_BGR2RGB))
-        except:
-            logging.info("Skin Retouching model detect error, but pass.")
+        # try:
+        #     sub_image           = Image.fromarray(cv2.cvtColor(skin_retouching(sub_image)[OutputKeys.OUTPUT_IMG], cv2.COLOR_BGR2RGB))
+        # except:
+        #     logging.info("Skin Retouching model detect error, but pass.")
 
         try:
             # Determine which images to enhance based on quality score and image size
